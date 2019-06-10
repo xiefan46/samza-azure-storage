@@ -1,0 +1,32 @@
+#cloud-config
+
+# Default disk definitions for Microsoft Azure
+# ------------------------------------------
+
+device_aliases: {'ephemeral0': '/dev/sdb'}
+disk_setup:
+    ephemeral0:
+         table_type: mbr
+         layout: True
+         overwrite: False
+
+fs_setup:
+    - label: ephemeral0
+      filesystem: ext4
+      device: ephemeral0.1
+      replace_fs: ntfs
+
+
+# Data disks definitions for Microsoft Azure
+# ------------------------------------------
+
+disk_setup:
+    /dev/disk/azure/scsi1/lun0:
+        table_type: gpt
+        layout: True
+        overwrite: True
+
+fs_setup:
+    - device: /dev/disk/azure/scsi1/lun0
+      partition: 1
+      filesystem: ext4
