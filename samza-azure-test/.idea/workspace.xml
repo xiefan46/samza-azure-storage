@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9d8d2ac-ca33-4b4d-9c61-b6e417aa2a6b" name="Default Changelist" comment="" />
+    <list default="true" id="f9d8d2ac-ca33-4b4d-9c61-b6e417aa2a6b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../samza-azure-test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../samza-azure-test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDiskWarmUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDiskWarmUp.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/TestDiskWarmUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1038">
-              <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+            <state relative-caret-position="227">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,8 +55,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/test/resources/test.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/TestDiskWarmUp.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/TestDiskWarmUp.java" />
       </list>
     </option>
   </component>
@@ -185,7 +188,7 @@
       <option name="presentableId" value="Default" />
       <updated>1560359411163</updated>
       <workItem from="1560359413006" duration="6810000" />
-      <workItem from="1560366905076" duration="1159000" />
+      <workItem from="1560366905076" duration="1253000" />
     </task>
     <servers>
       <JIRA url="https://jira01.corp.linkedin.com:8443">
@@ -228,7 +231,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7969000" />
+    <option name="totallyTimeSpent" value="8063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="12" y="23" width="1260" height="708" extended-state="0" />
@@ -304,8 +307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/TestDiskWarmUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1038">
-          <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+        <state relative-caret-position="227">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

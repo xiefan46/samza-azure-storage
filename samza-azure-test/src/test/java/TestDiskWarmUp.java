@@ -25,8 +25,7 @@ public class TestDiskWarmUp {
 
   private byte[] buffer = new byte[BUFFER_SIZE];
 
-
-  @Test
+  @Deprecated
   public void testPreAllocation() throws Exception {
     random.nextBytes(buffer);
     runTest(false, false);
