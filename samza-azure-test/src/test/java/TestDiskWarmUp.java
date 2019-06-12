@@ -47,7 +47,7 @@ public class TestDiskWarmUp {
       long time = writeRandomBytesToFile(file, false);
       bw.write(time + "\n");
       //file.deleteOnExit();
-      Thread.currentThread().sleep(60 * 1000);
+      //Thread.currentThread().sleep(60 * 1000);
     }
     bw.flush();
     bw.close();
