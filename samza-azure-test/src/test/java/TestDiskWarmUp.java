@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class TestDiskWarmUp {
 
-  private int FILE_SZIE_BYTES  = 10 * 1024 * 1024 * 1024  ;
+  private int FILE_SZIE_BYTES  = 1024 * 1024  ;
 
   private int BUFFER_SIZE = 1024  ;
 
