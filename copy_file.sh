@@ -1,5 +1,5 @@
 #!/bin/bash
 i=0
 while (( i++ < 9 )); do
-  cp data_file "data_file_$i"
+  cp -r  $1 "$1_$i"
 done
