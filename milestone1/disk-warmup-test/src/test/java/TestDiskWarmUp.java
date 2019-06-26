@@ -26,12 +26,12 @@ public class TestDiskWarmUp {
   private byte[] buffer = new byte[BUFFER_SIZE];
 
   @Deprecated
-  public void testPreAllocation() throws Exception {
+  public void testWriteBack() throws Exception {
     random.nextBytes(buffer);
     runTest(false, false);
     runTest(true, false);
-    runTest(false, true);
-    runTest(true, true);
+    //runTest(false, true);
+    //runTest(true, true);
   }
 
   @Test
@@ -41,7 +41,7 @@ public class TestDiskWarmUp {
     result.deleteOnExit();
     result.createNewFile();
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(result)));
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 3; i++){
       String fileName = FILE_NAME_PREFIX + "file-" + i;
       File file = deleteAndCreateNewFile(fileName);
       long time = writeRandomBytesToFile(file, false);
@@ -54,7 +54,7 @@ public class TestDiskWarmUp {
   }
 
   private void runTest(boolean isPreALlocation, boolean isForceToDisk) throws Exception{
-    String testName = "Pre-allocation : " + isPreALlocation + " Force to disk : " + isForceToDisk;
+    String testName = "Pre-allocation_" + isPreALlocation + "Force to disk_" + isForceToDisk + ".dat";
     String fileName = FILE_NAME_PREFIX + testName;
     writeFileTest(testName, fileName, isPreALlocation, isForceToDisk);
   }
