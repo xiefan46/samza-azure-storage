@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # REQUIRE: db_bench binary exists in the current directory
 
-# Important: modify some parameters 
+# Important: modify some parameters
 #  --disable_wal true
-#  --cache_size 104857600
+#  --cache_size 104857600 100MB
 #  --compression_type snappy
-
+#  num_keys  8000000000 -> 500000000 1/16
 
 
 if [ $# -ne 1 ]; then
@@ -61,7 +61,7 @@ compression_max_dict_bytes=${COMPRESSION_MAX_DICT_BYTES:-0}
 compression_type=${COMPRESSION_TYPE:-snappy}
 duration=${DURATION:-0}
 
-num_keys=${NUM_KEYS:-8000000000}
+num_keys=${NUM_KEYS:-500000000}
 key_size=${KEY_SIZE:-20}
 value_size=${VALUE_SIZE:-400}
 block_size=${BLOCK_SIZE:-8192}
