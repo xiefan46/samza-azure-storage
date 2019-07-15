@@ -1,10 +1,8 @@
 #!/bin/bash
 
-#add your public ssh key of this vm to github first
 
-git clone https://github.com/xiefan46/samza-azure-storage.git
-
-cd ~/samza-azure-storage/milestone2
+#install RocksDB
+cd ~/
 
 git clone https://github.com/facebook/rocksdb.git
 
@@ -25,4 +23,5 @@ sudo apt install make
 make release
 
 
-
+#install jupyter-notebook
+sudo apt install jupyter-notebook
