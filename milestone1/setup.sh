@@ -1,6 +1,10 @@
 #!/bin/bash
 
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
-sudo mkfs -t ext4 /dev/sdc1
-sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
-sudo chmod 777 /datadrive
+disk_location=$1
+disk_name=$2
+mount_dir_name=$3
+
+(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk $disk_location
+sudo mkfs -t ext4 $disk_name
+sudo mkdir $mount_dir_name && sudo mount $disk_name $mount_dir_name
+sudo chmod 777 $mount_dir_name
