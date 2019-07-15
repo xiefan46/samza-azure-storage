@@ -1,4 +1,6 @@
 virtual-machines-python-manage
 .ipynb_checkpoints
 milestone2/db_data/test*
+.idea
+
 
