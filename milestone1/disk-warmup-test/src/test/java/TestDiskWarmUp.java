@@ -12,15 +12,42 @@ import java.security.SecureRandom;
 import org.junit.Test;
 
 
+/**
+ * This is a java unit test to test the warmup latency in Azure.
+ *
+ * <p>Goal : test the warm-up latency of a new mounting disk
+ *
+ * <p>Motivation of this test:  mounting a new disk or remount a disk from one VM to another may cause some warm-up latency and performance degrade at the beginning of the mounting.
+ *
+ * <p>Parameter:
+ *      Disk size=1000GB
+ *      Size of one file = 1GB
+ *      File count = 10
+ *      Number of repetitions = 1
+ *
+ * <p>Procedure:
+ *      Create vm1 and vm2 and disk1
+ *      Mount disk1 on vm1, and mount a file system on disk1
+ *      Keep writing BUFFER_SIZE random bytes to a file until the file reaches the specified size(FILE_SZIE_BYTES).
+ *      Force the operating to flush all the data into the disk after the whole write is finished.
+ *      Repeat step 3 and step 4 for 10 times, measure the time for each write.
+ *
+ * <p>Usage: mvn test -Dtest=TestDiskWarmUp#testWriteFilePeriodicly
+ */
 public class TestDiskWarmUp {
 
+  /**
+   * Total File Size
+   */
   private int FILE_SZIE_BYTES  = 1024 * 1024 * 1024  ;
 
+  /**
+   * Write Buffer Size
+   */
   private int BUFFER_SIZE = 1024  ;
 
   private String FILE_NAME_PREFIX = "./";
-
-
+  
   private SecureRandom random = new SecureRandom();
 
   private byte[] buffer = new byte[BUFFER_SIZE];
@@ -34,6 +61,10 @@ public class TestDiskWarmUp {
     //runTest(true, true);
   }
 
+  /**
+   * This method writes random bytes into a file until it reaches a specificed size
+   * @throws Exception
+   */
   @Test
   public void testWriteFilePeriodicly() throws Exception{
     random.nextBytes(buffer);
