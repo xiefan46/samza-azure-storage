@@ -65,6 +65,7 @@ num_keys=${NUM_KEYS:-500000000}
 key_size=${KEY_SIZE:-20}
 value_size=${VALUE_SIZE:-400}
 block_size=${BLOCK_SIZE:-8192}
+db_bench = ${DB_BENCH}
 
 const_params="
   --db=$DB_DIR \
