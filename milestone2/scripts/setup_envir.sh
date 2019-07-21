@@ -25,3 +25,9 @@ make release
 
 #install jupyter-notebook
 sudo apt install jupyter-notebook
+
+sudo pip3 install matplotlib
+
+#increase open file limit
+ulimit -S -n 50000
+ulimit -H -n 50000
