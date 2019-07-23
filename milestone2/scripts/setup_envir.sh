@@ -31,3 +31,6 @@ sudo pip3 install matplotlib
 #increase open file limit
 ulimit -S -n 50000
 ulimit -H -n 50000
+
+#install fio to test random read/write of disk
+sudo apt install fio
