@@ -1,0 +1,4 @@
+Start bulkload at Wed Jul 17 00:15:22 UTC 2019
+Complete bulkload in 6208 seconds
+Start overwrite at Wed Jul 17 04:12:11 UTC 2019
+Complete overwrite in 2342 seconds
