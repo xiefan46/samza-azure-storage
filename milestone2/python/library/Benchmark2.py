@@ -27,7 +27,7 @@ class Benchmark2():
         The database is empty at the beginning of this benchmark run and gradually fills up. 
         No data is being read when the data load is in progress.
 
-        Rocksdb was configured to first load all the data in L0 with compactions switched off and using an unsorted vector memtable. 
+        Rocksdb was configured to first load all the data in L0 with compactions switched off and using an unsorted vector    memtable. 
         Then it made a second pass over the data to merge-sort all the files in L0 into sorted files in L1. 
         Here are the commands we used for loading the data into rocksdb:
     '''
@@ -36,17 +36,30 @@ class Benchmark2():
         print("running bulk load")
         self.run_benchmark_sh("bulkload")
         print("bulk load done")
-
+        
+    
     def overwrite(self):
-        print("running overwrite load")
+        print("running overwrite ")
+        self.para_map["NUM_THREADS"] = 1
         self.run_benchmark_sh("overwrite")
+        self.para_map.pop("NUM_THREADS", None)
         print("overwrite done")
+        
+    def readrandom(self):
+        print("running readrandom ")
+        self.para_map["NUM_THREADS"] = 1
+        self.run_benchmark_sh("readrandom")
+        self.para_map.pop("NUM_THREADS", None)
+        print("readrandom done”)
 
     def get_num_keys(self, data_size, key_size, value_size):
         return int(data_size / (key_size + value_size))
 
     def run_benchmark_sh(self, benchmarks):
-        os.system(f"{self.form_parameter_string(self.para_map)} {self.benchmark_sh} {benchmarks}")
+        iostat_monitor_thread = IostatMonitorThread(f"iostat-{benchmarks}", self.iostat_dir)
+        iostat_monitor_thread.start()
+        os.system(f"{self.form_parameter_string(self.para_map)} {self.benchmark_sh} {benchmarks}" )
+        iostat_monitor_thread.stop()
 
     def setup_test_env(self, root_dir):
         test_dir = self.get_random_test_dir(root_dir)
@@ -63,10 +76,12 @@ class Benchmark2():
         self.wal_dir = f"{dir_name}/wal"
         self.output_dir = f"{dir_name}/output"
         self.tmp_dir = f"{dir_name}/tmp"
+        self.iostat_dir = f"{dir_name}/iostat_log"
         os.system("mkdir {}".format(self.db_dir))
         os.system("mkdir {}".format(self.wal_dir))
         os.system("mkdir {}".format(self.output_dir))
         os.system("mkdir {}".format(self.tmp_dir))
+        os.system("mkdir {}".format(self.iostat_dir))
         self.para_map["DB_DIR"] = self.db_dir
         self.para_map["OUTPUT_DIR"] = self.output_dir
         self.para_map["WAL_DIR"] = self.wal_dir
