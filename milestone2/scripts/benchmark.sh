@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 # REQUIRE: db_bench binary exists in the current directory
 
-# Important: modify some parameters
-#  --disable_wal true
-#  --cache_size 104857600 100MB
-#  --compression_type snappy
-#  NUM_KEYS : 8000000000  -> 500000000   1/16
-
-
 if [ $# -ne 1 ]; then
   echo -n "./benchmark.sh [bulkload/fillseq/overwrite/filluniquerandom/"
   echo    "readrandom/readwhilewriting/readwhilemerging/updaterandom/"
@@ -56,23 +49,21 @@ num_threads=${NUM_THREADS:-64}
 mb_written_per_sec=${MB_WRITE_PER_SEC:-0}
 # Only for tests that do range scans
 num_nexts_per_seek=${NUM_NEXTS_PER_SEEK:-10}
-cache_size=${CACHE_SIZE:-$((104857600))}
+cache_size=${CACHE_SIZE:-$((17179869184))}
 compression_max_dict_bytes=${COMPRESSION_MAX_DICT_BYTES:-0}
-compression_type=${COMPRESSION_TYPE:-snappy}
+compression_type=${COMPRESSION_TYPE:-zstd}
 duration=${DURATION:-0}
 
-num_keys=${NUM_KEYS:-500000000}
+num_keys=${NUM_KEYS:-8000000000}
 key_size=${KEY_SIZE:-20}
 value_size=${VALUE_SIZE:-400}
 block_size=${BLOCK_SIZE:-8192}
-db_bench = ${DB_BENCH}
 
 const_params="
   --db=$DB_DIR \
   --wal_dir=$WAL_DIR \
   \
   --num=$num_keys \
-  --disable_wal=true \
   --num_levels=6 \
   --key_size=$key_size \
   --value_size=$value_size \
