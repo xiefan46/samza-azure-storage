@@ -64,6 +64,7 @@ const_params="
   --wal_dir=$WAL_DIR \
   \
   --num=$num_keys \
+  --disable_wal=true \
   --num_levels=6 \
   --key_size=$key_size \
   --value_size=$value_size \

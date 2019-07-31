@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+echo $project_dir
+
 #install RocksDB
 cd ~/
 
@@ -22,6 +24,8 @@ sudo apt install make
 #compile RocksDB
 make release
 
+#overwrite the benchmark.sh script because we want to disable WAL
+cp ~/samza-azure-storage/milestone2/scripts/benchmark.sh ~/rocksdb/tools
 
 #install jupyter-notebook
 sudo apt install jupyter-notebook
@@ -34,3 +38,6 @@ ulimit -H -n 50000
 
 #install fio to test random read/write of disk
 sudo apt install fio
+
+#install iostat
+sudo apt-get install sysstat -y
