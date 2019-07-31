@@ -473,7 +473,7 @@ for job in ${jobs[@]}; do
   elif [ $job = overwrite ]; then
     syncval="0"
     params_w="$params_w \
-	--writes=125000000 \
+    --writes=-1 \
 	--subcompactions=4 \
 	--soft_pending_compaction_bytes_limit=$((1 * T)) \
 	--hard_pending_compaction_bytes_limit=$((4 * T)) "

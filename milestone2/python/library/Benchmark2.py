@@ -17,6 +17,7 @@ class Benchmark2():
         self.rocks_db_dir = rocks_db_dir
         run_cmd(f"cp {rocks_db_dir}/db_bench .")
         os.system("cd {rocks_db_dir}")
+        run_cmd(f"cp ../scripts/benchmark.sh {rocks_db_dir}/tools")
         self.benchmark_sh = f"{rocks_db_dir}/tools/benchmark.sh"
         self.para_map = para_map
         self.verbose = verbose
@@ -60,7 +61,10 @@ class Benchmark2():
     def run_benchmark_sh(self, benchmarks):
         iostat_monitor_thread = IostatMonitorThread(f"iostat-{benchmarks}", self.iostat_dir)
         iostat_monitor_thread.start()
-        os.system(f"{self.form_parameter_string(self.para_map)} {self.benchmark_sh} {benchmarks}" )
+        cmd = f"{self.form_parameter_string(self.para_map)} {self.benchmark_sh} {benchmarks}"
+        print(cmd)
+        res = run_cmd(cmd)
+        print(res)
         iostat_monitor_thread.stop()
 
     def setup_test_env(self, root_dir):
