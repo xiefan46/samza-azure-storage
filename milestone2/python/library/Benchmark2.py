@@ -1,6 +1,7 @@
 from library.util import *
 import os
 import random
+from library.IostatMonitorThread import *
 '''
 Use benchmark.sh instead of db_bench
 '''
@@ -50,7 +51,8 @@ class Benchmark2():
         self.para_map["NUM_THREADS"] = 1
         self.run_benchmark_sh("readrandom")
         self.para_map.pop("NUM_THREADS", None)
-        print("readrandom done”)
+        print("readrandom done")
+
 
     def get_num_keys(self, data_size, key_size, value_size):
         return int(data_size / (key_size + value_size))
