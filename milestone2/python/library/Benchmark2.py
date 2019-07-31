@@ -1,4 +1,4 @@
-from util import *
+from library.util import *
 import os
 import random
 '''

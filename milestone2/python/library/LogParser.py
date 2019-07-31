@@ -1,4 +1,4 @@
-from Constant import *
+from library.Constant import *
 
 class LogParser():
     def __init__(self, log=None, file_name=None):

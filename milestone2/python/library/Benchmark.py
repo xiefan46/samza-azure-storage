@@ -1,5 +1,9 @@
-from Constant import *
+from library.Constant import *
+from library.util import *
+import random
+import os
 
+@DeprecationWarning("Use Benchmark2 instead of this class")
 class Benchmark():
 
     def __init__(self, root_dir, db_bench, key_size, value_size, data_size, other_params="",
