@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#example: bash ~/milestone2/scripts/mount_disks.sh /dev/sdf /dev/sdf1 /read_cache2
 disk_location=$1
 disk_name=$2
 mount_dir_name=$3
