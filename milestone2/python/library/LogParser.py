@@ -1,5 +1,7 @@
 from library.Constant import *
 
+
+
 class LogParser():
     def __init__(self, log=None, file_name=None):
         if file_name != None:
