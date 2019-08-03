@@ -58,6 +58,7 @@ num_keys=${NUM_KEYS:-8000000000}
 key_size=${KEY_SIZE:-20}
 value_size=${VALUE_SIZE:-400}
 block_size=${BLOCK_SIZE:-8192}
+write_buffer_size=${WRITE_BUFFER_SIZE:-134217728}
 
 const_params="
   --db=$DB_DIR \
@@ -82,7 +83,7 @@ const_params="
   \
   --hard_rate_limit=3 \
   --rate_limit_delay_max_milliseconds=1000000 \
-  --write_buffer_size=$((128 * M)) \
+  --write_buffer_size=$write_buffer_size \
   --target_file_size_base=$((128 * M)) \
   --max_bytes_for_level_base=$((1 * G)) \
   \
