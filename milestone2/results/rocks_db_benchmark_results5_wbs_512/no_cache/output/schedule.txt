@@ -1,0 +1,6 @@
+Start bulkload at Sat Aug  3 23:35:20 UTC 2019
+Complete bulkload in 1587 seconds
+Start overwrite at Sun Aug  4 00:01:47 UTC 2019
+Complete overwrite in 239 seconds
+Start readrandom at Sun Aug  4 00:05:46 UTC 2019
+Complete readrandom in 528 seconds
