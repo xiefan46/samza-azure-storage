@@ -1,10 +1,12 @@
 1. Overview
 
-Summary in: https://docs.google.com/document/d/1c4RRzx53GhNdbWA9uZmlBSFVofOPI23fq1ZokF6Pun4/edit?usp=sharing
 
 This project is used to test the performance of Azure disk.
 
-2. Code
+Summary of the project is in: https://docs.google.com/document/d/1c4RRzx53GhNdbWA9uZmlBSFVofOPI23fq1ZokF6Pun4/edit?usp=sharing
+
+
+2. Project Structure
 The milestone1/ directory contains code of evaluation of milestone 1 described in my document, and it's mainly used for
 feasibility analysis. Milestone 1 evaluate the basic behaviour such as disk mount, unmount, clone latencies.
 
@@ -14,12 +16,18 @@ provide by rocksdb community.
 
 The scripts/ directory contains several util shell script such as mount a disk and copy result files.
 
+The milestone2/library directory contains several useful classes that can be used by Juypter Notebook.
+
+The results/ directory contains the results of my previous experiments:
+    (a) results/fio_result contains the results of fio_benchmark
+    (b) results/rocks_db_benchmark_result3_no_compression and results/rocks_db_benchmark_result4_with_compression
+         contains the results of rocksdb benchmark
 
 3. How to run
 
 3.1 Create VM and disks
-Firstly, you need to create a VM in Azure and attach disks to that VM. And you also need to go to the Azure portal
-to get the public IP address of this VM
+Firstly, you need to create a VM in Azure and attach disks to that VM. And you also need to go to the Azure portal to
+get the public IP address of this VM
 
 3.2 Clone the project and install necessary libraries
 
@@ -36,8 +44,8 @@ git clone https://github.com/xiefan46/samza-azure-storage.git
 
 
 3.3 Connect to remote Jupyter Notebook
-The reason why I use Juypter Notebook is that it can explore the results interactively. You can connect to a remote VM and run
-different benchmarks on it and visualized the results in the Juypter Notebook very easily.
+The reason why I use Juypter Notebook is that it can explore the results interactively. You can connect to a remote VM
+and run different benchmarks on it and visualized the results in the Juypter Notebook very easily.
 
 The tutorial of connection to remote jupyter notebook can be found here:
 

@@ -2,16 +2,13 @@ from library.util import *
 import os
 import random
 from library.IostatMonitorThread import *
+
 '''
 Use benchmark.sh instead of db_bench
 '''
 
 class Benchmark2():
 
-    # export DB_DIR=/raid/db
-    # export WAL_DIR=/raid/wal
-    # export TEMP=/raid/tmp
-    # export OUTPUT_DIR=/raid/output
 
     def __init__(self, test_dir, rocks_db_dir, para_map={"KEY_SIZE": 20, "VALUE_SIZE": 400}, verbose=True):
         self.rocks_db_dir = rocks_db_dir
@@ -39,14 +36,30 @@ class Benchmark2():
         self.run_benchmark_sh("bulkload")
         print("bulk load done")
         
-    
+    '''
+    Random Write: Measure performance to randomly overwrite a large number of keys into the database. 
+    The database was first created by the previous bulkload benchmark. 
+    This benchmark was run with the Write-Ahead-Log (WAL) disabled and uses a single thread. 
+    The Random Write benchmark can be used to measure the performance of accessing read-write state.
+    Random Write is corresponding to the scenarios such as state required for joins of streams/tables 
+    over a windows, aggregations, buffers, and machine learning models.
+
+    '''
     def overwrite(self):
         print("running overwrite ")
         self.para_map["NUM_THREADS"] = 1
         self.run_benchmark_sh("overwrite")
         self.para_map.pop("NUM_THREADS", None)
         print("overwrite done")
-        
+
+
+    '''
+    Random Read: Measure random read performance of a database. 
+    Rocksdb was configured with a block size of 8KB. Data compression and Write-Ahead-Log (WAL) is disabled. 
+    Random Read benchmark measures applications that look up “adjunct” read-only data.
+    Many applications need to get the necessary information for each event to process it. 
+    Samza apps that have this workload are SamzaSQL or Beam jobs that do key based joins, Filtering/Deduping jobs, etc.
+    '''
     def readrandom(self):
         print("running readrandom ")
         self.para_map["NUM_THREADS"] = 1

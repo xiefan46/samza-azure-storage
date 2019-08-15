@@ -3,6 +3,10 @@ from library.util import *
 import datetime
 
 
+'''
+You can use this class to start an IOStat daemon when every benchmark starts. 
+Remember to stop this thread when your benchmark ends. 
+'''
 class IostatMonitorThread(threading.Thread):
     def __init__(self, name, output_dir): 
         threading.Thread.__init__(self) 

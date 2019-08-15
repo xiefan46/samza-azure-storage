@@ -1,7 +1,9 @@
 from library.Constant import *
 
 
-
+'''
+This class is used for extracting log results. 
+'''
 class LogParser():
     def __init__(self, log=None, file_name=None):
         if file_name != None:

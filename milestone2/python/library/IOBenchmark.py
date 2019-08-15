@@ -6,7 +6,9 @@ from library.Constant import *
 import os
 
 
-
+'''
+This class invokes the IOStat tool to test the basic disk operations such as random and seq read/write
+'''
 class IOBenchmark():
 
     def __init__(self, block_size, data_size, output_dir, clean_up=True):

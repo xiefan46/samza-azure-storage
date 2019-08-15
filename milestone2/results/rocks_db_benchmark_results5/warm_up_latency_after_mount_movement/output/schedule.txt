@@ -1,4 +1,0 @@
-Start bulkload at Thu Aug  1 19:33:57 UTC 2019
-Complete bulkload in 1144 seconds
-Start overwrite at Thu Aug  1 23:33:43 UTC 2019
-Complete overwrite in 241 seconds
