@@ -16,11 +16,11 @@ provide by rocksdb community.
 
 The scripts/ directory contains several util shell script such as mount a disk and copy result files.
 
-The milestone2/library directory contains several useful classes that can be used by Juypter Notebook.
+The milestone2/library/ directory contains several useful classes that can be used by Juypter Notebook.
 
 The results/ directory contains the results of my previous experiments:
-    (a) results/fio_result contains the results of fio_benchmark
-    (b) results/rocks_db_benchmark_result3_no_compression and results/rocks_db_benchmark_result4_with_compression
+    (a) results/fio_result/ contains the results of fio_benchmark
+    (b) results/rocks_db_benchmark_result3_no_compression/ and results/rocks_db_benchmark_result4_with_compression/
          contains the results of rocksdb benchmark
 
 3. How to run
