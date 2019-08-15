@@ -1,1 +1,47 @@
-Milestone1 summary in: https://docs.google.com/document/d/1c4RRzx53GhNdbWA9uZmlBSFVofOPI23fq1ZokF6Pun4/edit
+1. Overview
+
+Summary in: https://docs.google.com/document/d/1c4RRzx53GhNdbWA9uZmlBSFVofOPI23fq1ZokF6Pun4/edit?usp=sharing
+
+This project is used to test the performance of Azure disk.
+
+2. Code
+The milestone1/ directory contains code of evaluation of milestone 1 described in my document, and it's mainly used for
+feasibility analysis. Milestone 1 evaluate the basic behaviour such as disk mount, unmount, clone latencies.
+
+The milestone2/ directory contains code of performance benchmark. milestone2/fio_benchmark.ipynb evaluate the azure disk
+performance by using FIO tool. milestone2/rocksdb_benchmark.ipynb evaluate disk performance by using the db_bench tool
+provide by rocksdb community.
+
+The scripts/ directory contains several util shell script such as mount a disk and copy result files.
+
+
+3. How to run
+
+3.1 Create VM and disks
+Firstly, you need to create a VM in Azure and attach disks to that VM. And you also need to go to the Azure portal
+to get the public IP address of this VM
+
+3.2 Clone the project and install necessary libraries
+
+(a) ssh to the vm
+
+(b) clone the project
+git clone https://github.com/xiefan46/samza-azure-storage.git
+
+(c) setup the environment
+  (c1) The scripts/setup_envir.sh can be used for setup the environment. This scripts will download and
+  install rocksdb and many other libraries. Notice that it will overwrite the benchmark.sh script in rocksdb
+  by our own script.
+  (c2) Mount your disk. You can use scripts/mount_disk.sh script to mount a disk and a file system
+
+
+3.3 Connect to remote Jupyter Notebook
+The reason why I use Juypter Notebook is that it can explore the results interactively. You can connect to a remote VM and run
+different benchmarks on it and visualized the results in the Juypter Notebook very easily.
+
+The tutorial of connection to remote jupyter notebook can be found here:
+
+http://www.vickyfu.com/2017/04/using-jupyter-notebook-remotely-in-azure-vm/
+
+
+3.4 After that, you can run your tests in your local machine's browser.

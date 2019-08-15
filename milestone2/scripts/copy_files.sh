@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #example: bash ~/milestone2/scripts/mount_disks.sh /dev/sdf /dev/sdf1 /read_cache2
 root_dir=$1
 target_dir=$2
